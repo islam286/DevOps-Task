@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sqlserver-statefulSet
+spec:
+  serviceName: sqlserver # Add the serviceName property here
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      containers:
+        - name: sqlserver-container
+          image: microsoft/mssql-server:2017-latest
+          ports:
+            - containerPort:1433
