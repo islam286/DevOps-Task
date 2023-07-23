@@ -12,22 +12,6 @@ module "eks" {
   subnet_ids               = module.vpc.public_subnets
   control_plane_subnet_ids = module.vpc.public_subnets
 
-  # cluster_addons = {
-  #   coredns = {
-  #     most_recent = true
-  #   }
-    
-  #   kube-proxy = {
-  #     most_recent = true
-  #   }
-  #   vpc-cni = {
-  #     most_recent = true
-  #   }}
-    # aws-ebs-csi-driver = {
-    #   service_account_role_arn = module.ebs_csi_irsa_role.iam_role_arn
-    #   most_recent = true
-    # }
-#   }
 
 
   aws_auth_roles = [

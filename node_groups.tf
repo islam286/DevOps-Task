@@ -23,27 +23,5 @@ module "eks_managed_node_group" {
 
   enable_bootstrap_user_data = false
 
-  post_bootstrap_user_data = <<-EOF
-  
-  MIME-Version: 1.0
-  Content-Type: multipart/mixed; boundary="==BOUNDARY=="
-
-  --==BOUNDARY==
-  Content-Type: text/x-shellscript; charset="us-ascii"
-
-  #!/bin/bash
-  sudo yum update -y
-  sudo yum install kernel-devel -y
-  yum install -y git
-  git clone https://github.com/free5gc/gtp5g.git
-  cd gtp5g
-  sudo yum install -y make
-  sed -i 's|KDIR := /lib/modules/$(KVER)/build|KDIR := /usr/src/kernels/$(uname -r)|' ./Makefile
-  make
-  sudo make install
-
-  --==BOUNDARY==--
-  EOF
-
   tags = merge(local.tags, { Separate = "eks-managed-node-group" })
 }
