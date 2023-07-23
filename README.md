@@ -1,4 +1,4 @@
-# Terraform Project: Provisioning and Deploying EKS Cluster with Kubernetes Manifests
+# DevOps Task: Provisioning Infrastructure as a code with terraform for Web Applications and Databases (MongoDB, SQL Server) and Redis for caching, with Domain Name, Certificate, and Load Balancer, Using docker and Kubernetes.
 
 This Terraform project automates the provisioning and deployment of an Amazon Elastic Kubernetes Service (EKS) cluster in AWS. It also includes the deployment of Kubernetes manifests to configure the cluster according to your application's requirements. Below is an overview of the project's files and their functionalities:
 
